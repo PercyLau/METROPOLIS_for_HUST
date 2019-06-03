@@ -1,0 +1,291 @@
+% !TEX program = xelatex
+% !TeX encoding = UTF-8
+\documentclass[10pt]{beamer}
+
+\usetheme[progressbar=frametitle,sectionpage=progressbar]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{xeCJK}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\title{华中科技大学幻灯片模板}
+\subtitle{DEMO}
+\date{\today}
+\author{Percy Liu}
+\institute{华中科技大学}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{超长标题测试超长标题测试超长标题测试}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{引言}
+
+\begin{frame}[fragile]{扁平化风格模板}
+
+  该模板基于 \themename，通过扁平化字体、色块与简化背景，最大程度降低幻灯片中不必要的元素，旨在提供一种简约阅读体验.
+
+  使用该主题的方法：
+仅需在文件头加入
+  \begin{verbatim}    \documentclass{beamer}
+    \usetheme{metropolis}\end{verbatim}
+
+  注：幻灯片字体采用FireFox公司的Fira Sans字体。
+\end{frame}
+\begin{frame}[fragile]{章节测试}
+  每个章节集中讨论一个话题，方便读者理解幻灯片内容
+
+  \begin{verbatim}    元素化章节 \end{verbatim}
+
+  同时，提供了简约式进度条，提示读者当前阅读位置。
+\end{frame}
+
+\section{标题格式测试}
+
+\begin{frame}{标题格式测试}
+	英文模板支持下列四种标题格式
+	\begin{itemize}
+		\item Regular 正体
+		\item \textsc{Small caps} 大写开头
+		\item \textsc{all small caps}全小写
+		\item ALL CAPS 全大写
+	\end{itemize}
+	每个章节可单独设置标题格式
+\end{frame}
+
+\section{基本功能测试}
+
+\begin{frame}[fragile]{字形测试}
+      \begin{verbatim}幻灯片主题包括强调、加粗、斜体等多种默认字形命令\end{verbatim}
+
+  \begin{center}居中\end{center}
+
+ 示例：\emph{强调}， \alert{警告} 和 \textbf{加粗}.
+\end{frame}
+
+\begin{frame}{字体功能性测试}
+  \begin{itemize}
+    \item 正体
+    \item \textit{加斜}
+    \item \textsc{Small Caps}
+    \item \textbf{加粗}
+    \item \textbf{\textit{加粗加斜}}
+    \item \textbf{\textsc{Bold Small Caps}}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{列表}
+  \begin{columns}[T,onlytextwidth]
+    \column{0.33\textwidth}
+      列举
+      \begin{itemize}
+        \item 牛奶 \item 鸡蛋 \item 土豆
+      \end{itemize}
+
+    \column{0.33\textwidth}
+      枚举
+      \begin{enumerate}
+        \item 第一， \item 第二， \item 最后.
+      \end{enumerate}
+
+    \column{0.33\textwidth}
+      描述
+      \begin{description}
+        \item[PowerPoint] 幻灯片. \item[Beamer] 正片.
+      \end{description}
+  \end{columns}
+\end{frame}
+\begin{frame}{动画}
+  \begin{itemize}[<+- | alert@+>]
+    \item \alert<4>{这是重点}
+    \item 接下来
+    \item 然后
+  \end{itemize}
+\end{frame}
+\begin{frame}{图片测试}
+  \begin{figure}
+    \newcounter{density}
+    \setcounter{density}{20}
+    \begin{tikzpicture}
+      \def\couleur{alerted text.fg}
+      \path[coordinate] (0,0)  coordinate(A)
+                  ++( 90:5cm) coordinate(B)
+                  ++(0:5cm) coordinate(C)
+                  ++(-90:5cm) coordinate(D);
+      \draw[fill=\couleur!\thedensity] (A) -- (B) -- (C) --(D) -- cycle;
+      \foreach \x in {1,...,40}{%
+          \pgfmathsetcounter{density}{\thedensity+20}
+          \setcounter{density}{\thedensity}
+          \path[coordinate] coordinate(X) at (A){};
+          \path[coordinate] (A) -- (B) coordinate[pos=.10](A)
+                              -- (C) coordinate[pos=.10](B)
+                              -- (D) coordinate[pos=.10](C)
+                              -- (X) coordinate[pos=.10](D);
+          \draw[fill=\couleur!\thedensity] (A)--(B)--(C)-- (D) -- cycle;
+      }
+    \end{tikzpicture}
+    \caption{方形旋转
+    \href{http://www.texample.net/tikz/examples/rotated-polygons/}{texample.net}.}
+  \end{figure}
+\end{frame}
+\begin{frame}{表格测试}
+  \begin{table}
+    \caption{全球最大的城市 (来源: 维基百科)}
+    \begin{tabular}{@{} lr @{}}
+      \toprule
+      城市 & 人口\\
+      \midrule
+      墨西哥城 & 20,116,842\\
+      上海 & 19,210,000\\
+      北京 & 15,796,450\\
+      伊斯坦布尔 & 14,160,467\\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+\begin{frame}{字块与色块测试}
+  不同色块与不同色彩的字块可任意进行搭配
+
+  \begin{columns}[T,onlytextwidth]
+    \column{0.5\textwidth}
+      \begin{block}{默认}
+        内容块
+      \end{block}
+
+      \begin{alertblock}{警告}
+        内容块
+      \end{alertblock}
+
+      \begin{exampleblock}{例子}
+        内容块
+      \end{exampleblock}
+
+    \column{0.5\textwidth}
+
+      \metroset{block=fill}
+
+      \begin{block}{默认}
+        内容块
+      \end{block}
+
+      \begin{alertblock}{警告}
+        内容块
+      \end{alertblock}
+
+      \begin{exampleblock}{例子}
+        内容块
+      \end{exampleblock}
+
+  \end{columns}
+\end{frame}
+\begin{frame}{数学环境测试}
+  \begin{equation*}
+    e = \lim_{n\to \infty} \left(1 + \frac{1}{n}\right)^n
+  \end{equation*}
+\end{frame}
+\begin{frame}{线型图}
+  \begin{figure}
+    \begin{tikzpicture}
+      \begin{axis}[
+        mlineplot,
+        width=0.9\textwidth,
+        height=6cm,
+      ]
+
+        \addplot {sin(deg(x))};
+        \addplot+[samples=100] {sin(deg(2*x))};
+
+      \end{axis}
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+\begin{frame}{柱状图}
+  \begin{figure}
+    \begin{tikzpicture}
+      \begin{axis}[
+        mbarplot,
+        xlabel={项目},
+        ylabel={高度},
+        width=0.9\textwidth,
+        height=6cm,
+      ]
+
+      \addplot plot coordinates {(1, 20) (2, 25) (3, 22.4) (4, 12.4)};
+      \addplot plot coordinates {(1, 18) (2, 24) (3, 23.5) (4, 13.2)};
+      \addplot plot coordinates {(1, 10) (2, 19) (3, 25) (4, 15.2)};
+
+      \legend{蓝色, 黄色, 绿色}
+
+      \end{axis}
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+\begin{frame}{引用}
+  \begin{quote}
+    Veni, Vidi, Vici
+  \end{quote}
+\end{frame}
+
+{%
+\setbeamertemplate{脚标}{My custom footer}
+\begin{frame}[fragile]{Frame footer}
+    本模板定义了一种美观的脚标。使用方法如下：
+    \begin{verbatim}\setbeamertemplate{frame footer}{自定义脚标}\end{verbatim}
+\end{frame}
+}
+
+\begin{frame}{参考文献}
+  本文应用了部分参考文献 \cite{knuth92,ConcreteMath,Simpson,Er01,greenwade93}
+\end{frame}
+
+\section{小结}
+
+\begin{frame}{总结}
+
+  本模板基于\themename
+
+  \begin{center}\url{github.com/matze/mtheme}\end{center}。
+
+ 因此，本模板 \emph{itself} 遵循CCAS 4.0
+  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
+  Attribution-ShareAlike 4.0 International License}.
+
+  \begin{center}\ccbysa\end{center}
+
+\end{frame}
+
+\begin{frame}[standout]
+   \Huge{谢谢观赏}
+\end{frame}
+
+\appendix
+
+\begin{frame}[fragile]{备用}
+  备用幻灯片可以帮助读者更细腻的了解展示内容。
+
+  仅需在幻灯片开头包含 \verb|appendixnumberbeamer|
+  包 并在附录页面开始前声明\verb|\appendix|。
+
+  本模板会自动关闭附录中的页码和标号功能。
+\end{frame}
+
+\begin{frame}[allowframebreaks]{References}
+
+  \bibliography{demo}
+  \bibliographystyle{abbrv}
+
+\end{frame}
+
+\end{document}
