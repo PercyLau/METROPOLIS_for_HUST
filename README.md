@@ -1,4 +1,4 @@
-## 华中科技大学扁平化Beamer模板（METROPOLIS for HUST）
+## 简约风格华中科技大学Beamer模板（METROPOLIS for HUST）
 
 METROPOLIS是一个简约化风格的latex beamer模板。尊崇现代美学设计原则，它旨在通过简化幻灯片字体、排版和色调搭配，最小化环境对读者的影响。更多项目介绍请参考博客[here](http://bloerg.net/2014/09/20/a-modern-beamer-theme.html)。本项目基于METROPOLIS开发了METROPOLIS for HUST。
 
